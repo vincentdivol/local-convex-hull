@@ -8,4 +8,4 @@ I propose a code to play around the concept of *local convex hull*, that is defi
 
 The Jupyter Notebook can be lauched on Binder.
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/vincentdivol/local-convex-hull/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/vincentdivol/local-convex-hull/HEAD?urlpath=https%3A%2F%2Fgithub.com%2Fvincentdivol%2Flocal-convex-hull%2Fblob%2Fmain%2Flocal_convex_hull.ipynb)
