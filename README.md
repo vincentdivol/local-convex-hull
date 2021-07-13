@@ -2,9 +2,9 @@
 
 I propose a code to play around the concept of *local convex hull*, that is define in [this article](https://arxiv.org/abs/2001.04896). In particular, the method described in the paper to select a ''good'' scale for the local convex hull is implemented.
 
-- [utils.py](todo) contains auxiliary functions used in the notebooks below
-- [create_samples.py](todo) contains different functions to sample according to different distributions on manifolds.
-- [local_conv.ipynb](todo) is the tutorial 
+- [utils.py](https://github.com/vincentdivol/local-convex-hull/blob/main/utils.py) contains auxiliary functions used in the notebooks below
+- [create_samples.py](https://github.com/vincentdivol/local-convex-hull/blob/main/create_samples.py) contains different functions to sample according to different distributions on manifolds.
+- [local_conv.ipynb](https://github.com/vincentdivol/local-convex-hull/blob/main/local_convex_hull.ipynb) is the tutorial 
 
 The Jupyter Notebook can be lauched on Binder.
 
