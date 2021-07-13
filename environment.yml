@@ -1,0 +1,8 @@
+name: local_convex_hull
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - matplotlib
+prefix: /home/vdivol/anaconda3/envs/local_convex_hull
