@@ -1,0 +1,5 @@
+matplotlib==3.0.2
+numpy==1.19.1
+scipy==1.5.2 
+gudhi==2.3.0
+rpforest==1.6
