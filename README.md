@@ -5,3 +5,7 @@ I propose a code to play around the concept of *local convex hull*, that is defi
 - [utils.py](todo) contains auxiliary functions used in the notebooks below
 - [create_samples.py](todo) contains different functions to sample according to different distributions on manifolds.
 - [local_conv.ipynb](todo) is the tutorial 
+
+The Jupyter Notebook can be lauched on Binder.
+
+[![Binder](https://mybinder.org/badge_logo.svg)](todo)
