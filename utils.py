@@ -7,6 +7,7 @@ from scipy.spatial.distance import directed_hausdorff
 
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
+from smallest_enclosing_ball import make_circle 
 
     
 def copy_tree(simplex_tree):
@@ -16,30 +17,35 @@ def copy_tree(simplex_tree):
         new_tree.insert(sim, filtration = rad)
     return new_tree
 
-def add_t_hull(ax, X, simplex_tree, t, transparency = 1):
+def add_t_hull(ax, X, tree, t, transparency = 1):
     ax.axis('off')
     ax.set_facecolor("white")
     ax.set_yticklabels([])
     ax.set_xticklabels([])
     ax.patch.set_visible(False)
     
-    tree = copy_tree(simplex_tree)
-    tree.prune_above_filtration(t**2)
-    simplexes = tree.get_filtration()
-
-    isolated_points = []
-    for sim, rad in simplexes:
+    n = X.shape[0]
+    neighborst = tree.query_ball_tree(tree,t)
+    isolated_points = [i for i in range(n) if len(neighborst[i])==1]
+    neighbors = tree.query_ball_tree(tree,2*t)
+    
+    simplexes = []
+    for i in range(n):
+        for j in neighbors[i]:
+            if j>i:
+                simplexes.append([i,j])
+                for k in neighbors[i]:
+                    if k>j and make_circle(X[[i,j,k],:])[2]<t:
+                        simplexes.append([i,j,k])                     
+    
+    for sim in simplexes:
         simplex = X[sim,:]
         if len(sim) == 2:
             line_segment = LineCollection([simplex], alpha = transparency)
             ax.add_collection(line_segment)
-        if len(tree.get_star(sim)) <= 1: #that is sim is a maximal simplex
-            if len(sim) == 1:
-                isolated_points.append(sim[0])
-            
-            if len(sim) == 3:
-                triangle = plt.Polygon([simplex[0,:], simplex[1,:], simplex[2,:]], alpha = transparency)    
-                ax.add_artist(triangle)
+        if len(sim) == 3:
+            triangle = plt.Polygon([simplex[0,:], simplex[1,:], simplex[2,:]], alpha = transparency)    
+            ax.add_artist(triangle)
     ax.scatter(X[isolated_points,0], X[isolated_points,1], marker = '.', s = 10)
     
     
